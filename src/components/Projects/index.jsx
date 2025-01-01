@@ -2,7 +2,7 @@
 import styles from './style.module.scss'
 import { useState, useEffect, useRef } from 'react';
 import Project from './components/project';
-import { motion } from 'framer-motion';
+import { color, motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import Rounded from '../../common/RoundedButton';
@@ -11,32 +11,44 @@ const projects = [
   {
     title: "Daily2Min",
     src: "d2m.png",
-    color: "#000000"
+    color: "#000000",
+    type: "Journaling application"
   },
   {
     title: "MotherLight",
     src: "ml.png",
-    color: "#8C8C8C"
+    color: "#8C8C8C",
+    type: "2D Platformer Game"
   },
   {
     title: "AshKrypt",
     src: "ak.png",
-    color: "#706D63"
+    color: "#706D63",
+    type: "Web3 Dapp"
   },
   {
-    title: "Jarvis AI",
-    src: "jv.png",
-    color: "#000000"
+    title: "AshlaNote",
+    src: "ashlanote.png",
+    color: "#000000",
+    type: "Node based Note app"
   },
   {
     title: "Iphone Clone",
     src: "ip.png",
-    color: "#EFE8D3"
+    color: "#EFE8D3",
+    type: "Animated clone web"
+  },
+  {
+    title: "SpaceBot Rampage",
+    src: "spacebot.png",
+    color: "#A5AAB6",
+    type: "Top Down Shooter Rougelike"
   },
   {
     title: "Knights Adventure",
     src: "kn.png",
-    color: "#8C8C8C"
+    color: "#8C8C8C",
+    type: "2D Platformer Game"
   }
 ]
 
@@ -91,7 +103,7 @@ export default function Home() {
     <div className={styles.body}>
       {
         projects.map( (project, index) => {
-          return <Project index={index} title={project.title} manageModal={manageModal} key={index}/>
+          return <Project index={index} title={project.title} manageModal={manageModal} type={project.type} key={index}/>
         })
       }
     </div>
