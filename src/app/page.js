@@ -8,6 +8,7 @@ import Projects from '../components/Projects';
 import Description from '../components/Description';
 import SlidingImages from '../components/SlidingImages';
 import Contact from '../components/Contact';
+import Spline from '@splinetool/react-spline';
 
 export default function Home() {
 
@@ -33,7 +34,9 @@ export default function Home() {
       <AnimatePresence mode='wait'>
         {isLoading && <Preloader />}
       </AnimatePresence>
-      <Landing />
+      <Spline
+        scene="https://prod.spline.design/qNUgvpaf3-yGVmAc/scene.splinecode" 
+      />
       <Description />
       <Projects />
       <SlidingImages />
