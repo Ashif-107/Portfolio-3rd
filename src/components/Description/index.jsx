@@ -3,7 +3,7 @@ import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { slideUp, opacity } from './animation';
 import Rounded from '../../common/RoundedButton';
-export default function index() {
+export default function Description() {
 
     const phrase = "I am a Web Development Lead at IEEE RAS Club, specializing in crafting dynamic web experiences with React and Next.js. As a Game Developer at Google Developer Groups, I bring creativity to interactive projects. Currently, I'm diving into the world of 3D modeling and animation, blending artistry with technology to expand my skillset.";
     const description = useRef(null);
