@@ -23,11 +23,21 @@
                     overflow: hidden;
                     display: inline-flex;
                 }
+                .highlight {
+                    color: violet; /* or any other style you prefer */
+                }
             }
             &:nth-of-type(2){
-                font-size: 18px;
+                font-size: 20px;
                 width: 80%;
                 font-weight: 300;
+                font-family: sans-serif;
+                span{
+                    font-family: 'Courier New', Courier, monospace;
+                    font-weight: 700;
+                    color: violet;
+                    max-width: 100%;
+                }
             }
         }
         .button{
@@ -51,6 +61,7 @@
                 z-index: 1;
             }
         }
+        
     }
     .moreWork{
         padding: 20px;

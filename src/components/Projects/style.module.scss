@@ -67,6 +67,28 @@
         background-color: transparent;
     }
     
-    
+    .slidercontainer{
+        margin-bottom: 80px;
+       
+    }
+
+    .slider{
+        position: relative;
+        white-space: nowrap;
+        display: flex;
+    }
+
+    .slider p{
+        margin: 0px;
+        color: whitesmoke;
+        font-size: 11vw;
+        font-weight: 500;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .slider p:nth-of-type(2){
+        position: absolute;
+        left: 100%;
+    }
 }
 
