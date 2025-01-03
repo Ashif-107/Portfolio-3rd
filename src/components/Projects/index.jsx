@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import Rounded from '../../common/RoundedButton';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 const projects = [
   {
@@ -135,7 +136,7 @@ export default function Home() {
         }
       </div>
       <Rounded>
-        <p>More work</p>
+        <p><Link href="/work" className={styles.link}>More work</Link></p>
       </Rounded>
       <>
         <motion.div ref={modalContainer} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"} className={styles.modalContainer}>

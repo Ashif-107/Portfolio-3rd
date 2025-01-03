@@ -1,7 +1,7 @@
 'use client'
 import styles from './page.module.scss'
 
-import VerticalPicsSlider from '../../workcomponents/VerticalPicsSlider/page'
+import VerticalPicsSlider from '../../workcomponents/VerticalPicsSlider'
 
 export default function Work() {
     return (

@@ -8,10 +8,23 @@ import Description from '../components/Description';
 import SlidingImages from '../components/SlidingImages';
 import Contact from '../components/Contact';
 import Spline from '@splinetool/react-spline';
+import Lenis from '@studio-freight/lenis';
+
 
 export default function Home() {
 
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect( () => {
+          const lenis = new Lenis()
+  
+          function raf(time){
+              lenis.raf(time)
+              requestAnimationFrame(raf)
+          }
+  
+          requestAnimationFrame(raf)
+      },[])
 
   useEffect( () => {
     (
@@ -26,6 +39,7 @@ export default function Home() {
           }, 2000)
       }
     )()
+    
   }, [])
 
   return (
