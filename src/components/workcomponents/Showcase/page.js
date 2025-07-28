@@ -18,54 +18,69 @@ if (typeof window !== 'undefined') {
 const softwareProjects = [
   {
     id: 1,
-    title: 'Neural Network Dashboard',
-    description: 'Advanced machine learning interface with real-time data visualization and predictive analytics for enhanced decision making.',
-    techStack: ['React', 'TypeScript', 'Python', 'TensorFlow', 'D3.js'],
-    githubUrl: 'https://github.com/Ashif-107/neural-dashboard',
-    demoUrl: 'https://neural-dashboard-demo.com',
-    status: 'Active'
+    title: 'DeskFlow – Productivity Tracker',
+    description:
+      'A cross-platform desktop productivity tracker built using Rust and Tauri. Tracks active application usage, calculates daily focus scores, and visualizes productivity trends. Designed with deep system-level integrations like process monitoring, runtime permission handling, and app identification to create an efficient, lightweight desktop utility.',
+    techStack: ['Rust', 'Tauri', 'JavaScript', 'SQLite', 'Tailwind'],
+    githubUrl: 'https://github.com/Ashif-107/DeskFlow',
+    demoUrl: null,
+    status: 'Active',
   },
   {
     id: 2,
-    title: 'Quantum Computing Simulator',
-    description: 'Interactive quantum circuit builder with visualization tools for quantum algorithm development and testing.',
-    techStack: ['Next.js', 'WebGL', 'Quantum.js', 'Three.js', 'SCSS'],
-    githubUrl: 'https://github.com/Ashif-107/quantum-sim',
-    demoUrl: 'https://quantum-sim-demo.com',
-    status: 'Beta'
+    title: 'YouTube Data Pipeline',
+    description:
+      'Built an end-to-end ETL pipeline that extracts YouTube video comments using the YouTube Data API, transforms them using custom NLP scripts, and loads the data into AWS S3 for further analysis. Scheduled with Apache Airflow for automation and scalability. Built to experiment with audience sentiment analysis and content optimization.',
+    techStack: ['Python', 'Airflow', 'YouTube API', 'AWS S3', 'Pandas'],
+    githubUrl: 'https://github.com/Ashif-107/youtube-etl',
+    demoUrl: null,
+    status: 'Completed',
   },
+
   {
     id: 3,
-    title: 'Blockchain Analytics Platform',
-    description: 'Comprehensive cryptocurrency tracking and portfolio management with advanced charting and AI-powered insights.',
-    techStack: ['Vue.js', 'Node.js', 'MongoDB', 'Chart.js', 'WebSocket'],
-    githubUrl: 'https://github.com/Ashif-107/crypto-analyzer',
-    demoUrl: 'https://crypto-analyzer-demo.com',
-    status: 'Active'
+    title: 'Vibrance\'25 – 3D Website & Event Platform',
+    description:
+      'Crafted the official tech & cultural fest website for Vibrance\'25, including an immersive 3D merchandise page and animated landing sections. Led frontend development, coordinated with design and backend teams, and handled deployment. The project demanded real-world problem solving under tight deadlines while mastering Git and collaborative workflows.',
+    techStack: ['Three.js', 'GSAP', 'Next.js', 'Framer Motion', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/Ashif-107/vibrance25',
+    demoUrl: 'https://vibrance-vtop.com',
+    status: 'Completed',
   },
   {
     id: 4,
-    title: 'AI Code Assistant',
-    description: 'Intelligent code completion and refactoring tool powered by GPT models with multi-language support.',
-    techStack: ['Python', 'FastAPI', 'React', 'OpenAI', 'Docker'],
-    githubUrl: 'https://github.com/Ashif-107/ai-code-assistant',
-    demoUrl: null,
-    status: 'Development'
+    title: 'Ashlanote – Node-Based Note-Taking App',
+    description:
+      'A dynamic, visual-first note-taking platform built with React Flow. Users can create, drag, and connect rich-text notes as nodes, with GSAP-powered animations for an intuitive interface. Designed for freeform ideation, research mapping, and creative workflows, mimicking Milanote-style UX.',
+    techStack: ['Next.js', 'React Flow', 'Tailwind CSS', 'GSAP'],
+    githubUrl: 'https://github.com/Ashif-107/ashlanote',
+    demoUrl: 'https://ashlanote.vercel.app',
+    status: 'Active',
+  },
+  {
+    id: 5,
+    title: 'Daily2Min – Journal Habit Builder',
+    description:
+      'A minimalistic web app designed to help users build journaling habits in just 2 minutes a day. Focuses on simplicity and consistency with mood tracking, streak monitoring, and reflective prompts. Built to explore the psychology of habit formation and promote digital mindfulness.',
+    techStack: ['Next.js', 'Tailwind CSS', 'Supabase', 'React Hook Form'],
+    githubUrl: 'https://github.com/Ashif-107/daily2min',
+    demoUrl: 'https://daily2min.vercel.app',
+    status: 'Beta',
   }
 ];
 
 const gameProjects = [
   {
-    id: 5,
-    title: 'Cyber Nexus',
-    description: 'Immersive cyberpunk RPG with dynamic storylines, hacking mechanics, and neural interface combat systems.',
-    techStack: ['Unity', 'C#', 'Blender', 'HLSL', 'Photon'],
+    id: 6,
+    title: 'Open World ARPG',
+    description: 'A Open World Third Person Setting on a cool nature environment with dynamic lighning, wind and terrain, Breathtaking visuals and immersive gameplay.',
+    techStack: ['Unity', 'C#', 'Blender'],
     githubUrl: 'https://github.com/Ashif-107/cyber-nexus',
-    demoUrl: 'https://cyber-nexus-demo.com',
+    demoUrl: 'null',
     status: 'Released'
   },
   {
-    id: 6,
+    id: 7,
     title: 'Quantum Runner',
     description: 'Physics-defying endless runner where players manipulate quantum states to navigate through dimensional barriers.',
     techStack: ['Unreal Engine', 'Blueprint', 'C++', 'Niagara'],
@@ -74,7 +89,7 @@ const gameProjects = [
     status: 'Active'
   },
   {
-    id: 7,
+    id: 8,
     title: 'Neural Wars',
     description: 'Strategic multiplayer battle arena where players command AI armies with machine learning-based unit behavior.',
     techStack: ['Godot', 'GDScript', 'Python', 'TensorFlow', 'WebRTC'],
@@ -90,89 +105,98 @@ export default function Projects() {
   const gamesSectionRef = useRef(null);
 
   useEffect(() => {
-    // Cyberpunk floating elements parallax
-    gsap.to('.cyber-float-1', {
-      y: -100,
-      rotation: 360,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1
-      }
-    });
+    // Small delay to ensure component is mounted
+    const timer = setTimeout(() => {
+      // Optimized GSAP animations with reduced complexity
+      const ctx = gsap.context(() => {
+        // Simplified floating elements animation
+        gsap.to('.cyber-float-1', {
+          y: -50,
+          rotation: 180,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.5
+          }
+        });
 
-    gsap.to('.cyber-float-2', {
-      y: 50,
-      rotation: -180,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 0.5
-      }
-    });
+        gsap.to('.cyber-float-2', {
+          y: 30,
+          rotation: -90,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.3
+          }
+        });
 
-    // Section reveal animations
-    gsap.fromTo(softwareSectionRef.current,
-      { opacity: 0, y: 100 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: softwareSectionRef.current,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
+        // Optimized section reveal animations
+        gsap.fromTo(softwareSectionRef.current,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: softwareSectionRef.current,
+              start: 'top 80%',
+              end: 'bottom 20%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
 
-    gsap.fromTo(gamesSectionRef.current,
-      { opacity: 0, y: 100 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: gamesSectionRef.current,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
+        gsap.fromTo(gamesSectionRef.current,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: gamesSectionRef.current,
+              start: 'top 80%',
+              end: 'bottom 20%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
 
-    // Staggered card animations
-    gsap.fromTo('.cyber-card',
-      {
-        opacity: 0,
-        y: 60,
-        rotationX: -20,
-        scale: 0.9
-      },
-      {
-        opacity: 1,
-        y: 0,
-        rotationX: 0,
-        scale: 1,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.projects-container',
-          start: 'top 70%',
-          end: 'bottom 30%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
+        // Simplified card animations
+        gsap.fromTo('.cyber-card',
+          {
+            opacity: 0,
+            y: 30,
+            scale: 0.95
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: '.projects-container',
+              start: 'top 70%',
+              end: 'bottom 30%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+      });
 
+      return () => {
+        ctx.revert();
+      };
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -185,14 +209,14 @@ export default function Projects() {
         className={styles.heroSection}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: 0.8 }}
       >
         <div className={styles.heroContent}>
           <motion.h1
             className={styles.heroTitle}
-            initial={{ y: -50, opacity: 0 }}
+            initial={{ y: -30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             Ashif Projects
           </motion.h1>
@@ -200,7 +224,7 @@ export default function Projects() {
             className={styles.heroSubtitle}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
             {"// INITIALIZING NEURAL_NETWORK..."}
             <br />

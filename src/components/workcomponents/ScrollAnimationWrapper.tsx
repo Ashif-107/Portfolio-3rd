@@ -79,20 +79,20 @@ const ScrollAnimationWrapper: React.FC<ScrollAnimationWrapperProps> = ({
   }, [delay, duration]);
 
   return (
-    <motion.div
-      ref={ref}
-      variants={variants[animation]}
-      initial="hidden"
-      animate={controls}
-      transition={{
-        duration: duration,
-        delay: delay,
-        ease: 'easeOut'
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <div ref={ref} className={className}>
+      <motion.div
+        variants={variants[animation]}
+        initial="hidden"
+        animate={controls}
+        transition={{
+          duration: duration,
+          delay: delay,
+          ease: 'easeOut'
+        }}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 };
 
