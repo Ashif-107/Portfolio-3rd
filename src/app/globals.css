@@ -1,7 +1,15 @@
+:root {
+    --cyber-black: 0 0% 4%;
+    --cyber-yellow: 50 100% 50%;
+    --cyber-blue: 200 100% 50%;
+    --cyber-purple: 280 100% 70%;
+    --cyber-red: 0 100% 50%;
+}
 
-body{
+body {
     margin: 0px;
-    overflow: hidden; /* Hide scrollbars */
+    overflow: hidden;
+    /* Hide scrollbars */
     cursor: wait;
     background-color: #0b0b0b;
     color: white;
