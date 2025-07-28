@@ -24,36 +24,9 @@ const CyberpunkProjectCard: React.FC<CyberpunkProjectCardProps> = ({
   index,
   type
 }) => {
-  const getStatusIcon = () => {
-    switch (project.status) {
-      case 'Active':
-        return <Zap className={styles.statusIcon} />;
-      case 'Beta':
-        return <Shield className={styles.statusIcon} />;
-      case 'Development':
-        return <Cpu className={styles.statusIcon} />;
-      default:
-        return <Zap className={styles.statusIcon} />;
-    }
-  };
-
-  const getStatusClass = () => {
-    switch (project.status) {
-      case 'Active':
-        return styles.statusActive;
-      case 'Beta':
-        return styles.statusBeta;
-      case 'Development':
-        return styles.statusDev;
-      case 'Released':
-        return styles.statusReleased;
-      default:
-        return styles.statusActive;
-    }
-  };
 
   return (
-    <div className={`${styles.cardContainer} cyber-card`}>
+    <div className={styles.cardWrapper}>
       <motion.div
         initial={{ opacity: 0, y: 50, rotateX: -15 }}
         whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -63,98 +36,108 @@ const CyberpunkProjectCard: React.FC<CyberpunkProjectCardProps> = ({
           ease: 'easeOut'
         }}
         whileHover={{
-          y: -10,
-          rotateX: 5,
-          transition: { duration: 0.2 }
+          y: -15,
+          rotateX: 8,
+          rotateY: 3,
+          scale: 1.02,
+          zIndex: 999,
+          transition: {
+            duration: 0.3,
+            ease: "easeOut"
+          }
         }}
         viewport={{ once: true }}
+        style={{
+          transformStyle: "preserve-3d",
+          perspective: "1200px",
+          transformOrigin: "center center"
+        }}
       >
-        {/* Cyberpunk Corner Elements */}
-        <div className={styles.cornerTopLeft}></div>
-        <div className={styles.cornerTopRight}></div>
-        <div className={styles.cornerBottomLeft}></div>
-        <div className={styles.cornerBottomRight}></div>
+        <div className={`${styles.cardContainer} cyber-card`}>
+          {/* Cyberpunk Corner Elements */}
+          <div className={styles.cornerTopLeft}></div>
+          <div className={styles.cornerTopRight}></div>
+          <div className={styles.cornerBottomLeft}></div>
+          <div className={styles.cornerBottomRight}></div>
 
-
-
-        {/* Card Content */}
-        <div className={styles.cardContent}>
-          {/* Header */}
-          <div className={styles.cardHeader}>
-            <h3 className={styles.cardTitle}>
-              {project.title}
-              <div className={styles.titleGlow}></div>
-            </h3>
-
-          </div>
-
-          {/* Description */}
-          <p className={styles.cardDescription}>
-            {project.description}
-          </p>
-
-          {/* Tech Stack */}
-          <div className={styles.techStack}>
-            <div className={styles.techLabel}>TECH_STACK:</div>
-            <div className={styles.techTags}>
-              {project.techStack.map((tech, techIndex) => (
-                <span key={techIndex} className={styles.techTag}>
-                  <motion.span
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: '0 0 15px hsl(var(--cyber-yellow) / 0.5)'
-                    }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {tech}
-                  </motion.span>
-                </span>
-              ))}
+          {/* Card Content */}
+          <div className={styles.cardContent}>
+            {/* Header */}
+            <div className={styles.cardHeader}>
+              <h3 className={styles.cardTitle}>
+                {project.title}
+                <div className={styles.titleGlow}></div>
+              </h3>
             </div>
-          </div>
 
-          {/* Action Buttons */}
-          <div className={styles.cardActions}>
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.actionButton}
-            >
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Github className={styles.buttonIcon} />
-                <span>SOURCE</span>
-                <div className={styles.buttonGlow}></div>
-              </motion.div>
-            </a>
+            {/* Description */}
+            <p className={styles.cardDescription}>
+              {project.description}
+            </p>
 
-            {project.demoUrl && (
+            {/* Tech Stack */}
+            <div className={styles.techStack}>
+              <div className={styles.techLabel}>TECH_STACK:</div>
+              <div className={styles.techTags}>
+                {project.techStack.map((tech, techIndex) => (
+                  <span key={techIndex} className={styles.techTag}>
+                    <motion.span
+                      whileHover={{
+                        scale: 1.05,
+                        boxShadow: '0 0 15px hsl(var(--cyber-yellow) / 0.5)'
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {tech}
+                    </motion.span>
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className={styles.cardActions}>
               <a
-                href={project.demoUrl}
+                href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.actionButton} ${styles.demoButton}`}
+                className={styles.actionButton}
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <ExternalLink className={styles.buttonIcon} />
-                  <span>DEMO</span>
+                  <Github className={styles.buttonIcon} />
+                  <span>SOURCE</span>
                   <div className={styles.buttonGlow}></div>
                 </motion.div>
               </a>
-            )}
+
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.actionButton} ${styles.demoButton}`}
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <ExternalLink className={styles.buttonIcon} />
+                    <span>DEMO</span>
+                    <div className={styles.buttonGlow}></div>
+                  </motion.div>
+                </a>
+              )}
+            </div>
+
+            {/* Cyberpunk Grid Pattern */}
+            <div className={styles.gridPattern}></div>
+
+            {/* Hover Glow Effect */}
+            <div className={styles.hoverGlow}></div>
           </div>
-
-          {/* Cyberpunk Grid Pattern */}
-          <div className={styles.gridPattern}></div>
-
-          {/* Hover Glow Effect */}
-          <div className={styles.hoverGlow}></div>
         </div>
       </motion.div>
     </div>

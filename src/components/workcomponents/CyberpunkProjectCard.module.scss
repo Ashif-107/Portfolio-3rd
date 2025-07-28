@@ -1,5 +1,11 @@
 /* CyberpunkProjectCard styles */
 
+.cardWrapper {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  position: relative;
+}
+
 .cardContainer {
   position: relative;
   background: linear-gradient(135deg,
@@ -14,6 +20,11 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   transform-style: preserve-3d;
+  perspective: 1000px;
+  backface-visibility: visible;
+  transform-origin: center center;
+  z-index: 1;
+  /* Base z-index */
 
   &:hover {
     border-color: hsl(var(--cyber-yellow) / 0.8);
@@ -21,6 +32,8 @@
       0 10px 30px hsl(var(--cyber-black) / 0.3),
       0 0 0 1px hsl(var(--cyber-yellow) / 0.2),
       inset 0 0 0 1px hsl(var(--cyber-yellow) / 0.1);
+    z-index: 999;
+    /* Elevated z-index on hover */
 
     .hoverGlow {
       opacity: 1;
@@ -29,6 +42,17 @@
     .titleGlow {
       opacity: 1;
     }
+  }
+}
+
+// Wrapper to handle 3D transforms properly
+.cardWrapper {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  z-index: 1;
+
+  &:hover {
+    z-index: 999;
   }
 }
 
@@ -41,6 +65,8 @@
   width: 20px;
   height: 20px;
   border: 2px solid hsl(var(--cyber-yellow) / 0.6);
+  z-index: 10;
+  /* Ensure corners stay on top */
 
   &::before,
   &::after {
@@ -151,6 +177,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   backdrop-filter: blur(10px);
+  z-index: 5;
 }
 
 .statusActive {
@@ -188,6 +215,9 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  background: inherit;
 }
 
 .cardHeader {
@@ -358,6 +388,8 @@
   transition: opacity 0.3s ease;
   z-index: -1;
   pointer-events: none;
+  backface-visibility: visible;
+  transform-style: preserve-3d;
 }
 
 @media (max-width: 768px) {
