@@ -1,13 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+'use client';
+
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import CyberpunkProjectCard from '../CyberpunkProjectCard';
 import CyberpunkDecorations from '../CyberpunkDecorations';
 import { Code, Gamepad2 } from 'lucide-react';
-import styles from './Projects.module.scss';
+import styles from './style.module.scss';
 
-gsap.registerPlugin(ScrollTrigger);
+// Register GSAP plugins
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 // Hardcoded project data
 const softwareProjects = [
@@ -79,10 +84,10 @@ const gameProjects = [
   }
 ];
 
-const Projects: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const softwareSectionRef = useRef<HTMLDivElement>(null);
-  const gamesSectionRef = useRef<HTMLDivElement>(null);
+export default function Projects() {
+  const containerRef = useRef(null);
+  const softwareSectionRef = useRef(null);
+  const gamesSectionRef = useRef(null);
 
   useEffect(() => {
     // Cyberpunk floating elements parallax
@@ -176,35 +181,44 @@ const Projects: React.FC = () => {
       <CyberpunkDecorations />
 
       {/* Hero Section */}
-      <section
+      <motion.section
         className={styles.heroSection}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
       >
         <div className={styles.heroContent}>
-          <h1
+          <motion.h1
             className={styles.heroTitle}
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
           >
-            DIGITAL_PORTFOLIO.EXE
-          </h1>
-          <p
+            Ashif Projects
+          </motion.h1>
+          <motion.p
             className={styles.heroSubtitle}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
           >
-            INITIALIZING NEURAL_NETWORK...
+            {"// INITIALIZING NEURAL_NETWORK..."}
             <br />
-            LOADING PROJECT_DATABASE...
+            {"// LOADING PROJECT_DATABASE..."}
             <br />
-            STATUS: ONLINE 
-          </p>
+            {"// STATUS: ONLINE"}
+          </motion.p>
         </div>
-      </section>
+      </motion.section>
 
       <div className="projects-container">
         {/* Software Projects Section */}
         <section ref={softwareSectionRef} className={styles.projectSection}>
-          <div className={styles.sectionHeader}>
+          <motion.div className={styles.sectionHeader}>
             <Code className={styles.sectionIcon} />
             <h2 className={styles.sectionTitle}>SOFTWARE_DEVELOPMENT</h2>
             <div className={styles.sectionDivider}></div>
-          </div>
+          </motion.div>
 
           <div className={styles.projectsGrid}>
             {softwareProjects.map((project, index) => (
@@ -220,11 +234,11 @@ const Projects: React.FC = () => {
 
         {/* Game Projects Section */}
         <section ref={gamesSectionRef} className={styles.projectSection}>
-          <div className={styles.sectionHeader}>
+          <motion.div className={styles.sectionHeader}>
             <Gamepad2 className={styles.sectionIcon} />
             <h2 className={styles.sectionTitle}>GAME_DEVELOPMENT</h2>
             <div className={styles.sectionDivider}></div>
-          </div>
+          </motion.div>
 
           <div className={styles.projectsGrid}>
             {gameProjects.map((project, index) => (
@@ -240,6 +254,4 @@ const Projects: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Projects;
+}

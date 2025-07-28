@@ -10,7 +10,7 @@ import Lenis from '@studio-freight/lenis';
 import Preloader from '../../components/workcomponents/Transition';
 import VerticalPicsSlider from '../../components/workcomponents/VerticalPicsSlider'
 import WorkLanding from '../../components/workcomponents/WorkLanding'
-import Projects from '../../components/workcomponents/Showcase/Projects';
+import Projects from '../../components/workcomponents/Showcase/page';
 export default function Work() {
   const [isLoading, setIsLoading] = useState(true);
 
