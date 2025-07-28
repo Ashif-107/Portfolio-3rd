@@ -52,24 +52,26 @@ export default function Contact() {
                             <h3>3rd Portfolio Version</h3>
                             <p>2025 © Ashif</p>
                         </span>
-                        
+
                     </div>
                     <div>
                         <span>
-                            <h3>socials</h3>
-                            <Magnetic>
-                                <p>Github</p>
-                            </Magnetic>
+                            <h3>Socials</h3>
+                            <a href="https://github.com/Ashif-107" target="_blank" rel="noopener noreferrer">
+                                <Magnetic><p>Github</p></Magnetic>
+                            </a>
                         </span>
-                        <Magnetic>
-                            <p>Instagram</p>
-                        </Magnetic>
-                        <Magnetic>
-                            <p>Linkedin</p>
-                        </Magnetic>
-                        <Magnetic>
-                            <p>Discord</p>
-                        </Magnetic>
+                        <a href="https://instagram.com/ash_if_107" target="_blank" rel="noopener noreferrer">
+                            <Magnetic>
+                                <p>Instagram</p>
+                            </Magnetic>
+                        </a>
+                        <a href="https://linkedin.com/in/mohamed-ashif-k-m" target="_blank" rel="noopener noreferrer">
+                            <Magnetic><p>Linkedin</p></Magnetic>
+                        </a>
+                        <a href="https://discord.com/users/y594812508079128578" target="_blank" rel="noopener noreferrer">
+                            <Magnetic><p>Discord</p></Magnetic>
+                        </a>
                     </div>
                 </div>
             </div>

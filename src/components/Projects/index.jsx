@@ -11,22 +11,17 @@ import Link from 'next/link';
 
 const projects = [
   {
+    title: "DeskFlow",
+    src: "deskflow.png",
+    color: "#706D63",
+    type: "Desktop HUD Application"
+  },
+  {
+    
     title: "Daily2Min",
     src: "d2m.png",
     color: "#000000",
     type: "Journaling application"
-  },
-  {
-    title: "MotherLight",
-    src: "ml.png",
-    color: "#8C8C8C",
-    type: "2D Platformer Game"
-  },
-  {
-    title: "AshKrypt",
-    src: "ak.png",
-    color: "#706D63",
-    type: "Web3 Dapp"
   },
   {
     title: "AshlaNote",
@@ -35,10 +30,10 @@ const projects = [
     type: "Node based Note app"
   },
   {
-    title: "Iphone Clone",
-    src: "ip.png",
+    title: "Vibrance'25",
+    src: "vib.png",
     color: "#EFE8D3",
-    type: "Animated clone web"
+    type: "Website for a VIT fest"
   },
   {
     title: "SpaceBot Rampage",

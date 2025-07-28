@@ -7,9 +7,9 @@ import Spline from '@splinetool/react-spline';
 import Lenis from '@studio-freight/lenis';
 
 
-import Preloader from '../../workcomponents/Transition';
-import VerticalPicsSlider from '../../workcomponents/VerticalPicsSlider'
-import WorkLanding from '../../workcomponents/WorkLanding'
+import Preloader from '../../components/workcomponents/Transition';
+import VerticalPicsSlider from '../../components/workcomponents/VerticalPicsSlider'
+import WorkLanding from '../../components/workcomponents/WorkLanding'
 export default function Work() {
     const [isLoading, setIsLoading] = useState(true);
 
